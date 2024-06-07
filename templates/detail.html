@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ destination.place_name }}</h2>
+<p>Weather: {{ destination.weather }}</p>
+<p>Location: {{ destination.district }}, {{ destination.state }}</p>
+<p>Google Map: <a href="{{ destination.google_map_link }}" target="_blank">View Map</a></p>
+<p><img src="{{ destination.image.url }}" alt="{{ destination.place_name }}" style="width: 300px; height: auto;"></p>
+<p>Description: {{ destination.description }}</p>
+<a href="{% url 'destination-update' destination.id %}" class="btn btn-outline-info">Edit</a> |
+<a href="{% url 'destination-delete' destination.id %}" class="btn btn-outline-danger">Delete</a> |
+<a href="{% url 'destination-list' %}" class="btn btn-outline-success">Back</a>
+{% endblock %}

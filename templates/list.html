@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mt-4">Tourist Destinations</h2>
+<ul class="list-group">
+    {% for destination in destinations %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+
+            <h3>{{ destination.place_name }}</h3>
+            <span>
+                <a href="{% url 'destination-retrieve' destination.id %}" class="btn btn-sm btn-success">View</a>
+                <a href="{% url 'destination-update' destination.id %}" class="btn btn-sm btn-info">Edit</a>
+                <a href="{% url 'destination-delete' destination.id %}" class="btn btn-sm btn-danger">Delete</a>
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
